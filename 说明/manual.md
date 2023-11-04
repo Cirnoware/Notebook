@@ -11,6 +11,7 @@
 ## 更新记录
 - 安装latex插件
 参考链接：[MkDocs-Github-Readthedocs](https://zj-sphinx-github-readthedocs.readthedocs.io/en/latest/mkdocs/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90/)
+- 2023.11.04 完成启动和github部署自动化
 
 ## 电脑修复记录
 - 2023.9.28 chrome崩溃  
