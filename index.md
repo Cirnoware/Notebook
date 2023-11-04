@@ -24,6 +24,11 @@
 [Paradox's Website](https://zju-paradox.top/)  
 [KLBB的小窝](https://zjuklbb.top/)  
 
+似乎是校内其他同学
+
+[HobbitQia的笔记本](https://note.hobbitqia.cc/)  
+[](https://note.bowling233.top/)--似乎有很多友链
+
 顺藤摸瓜，一挖挖一堆，大丰收![ac06](.\AC娘表情包\ac06.gif)
 
 ## 大物实验课表
