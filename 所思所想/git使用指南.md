@@ -9,3 +9,14 @@
 这并不是因为操作流程的问题，而是网络的问题（可用gitee验证）
 
 - 说明：本地已有文件时，可能需要先移到别处（不一定，还未试过）
+
+## 远程已有空仓库，初始化并将本地文件上传到远程仓库
+```
+echo "# Notebook" >> README.md ##可不需要
+git init
+git add README.md    ## 可改为其他文件
+git commit -m "first commit"    ## 可自定义注释
+git branch -M main
+git remote add origin <https://xxx.github.io>
+git push -u origin main
+```

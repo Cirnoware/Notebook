@@ -1,3 +1,8 @@
+## 关于如何愉快的运行shell脚本
+当前的较好方法是先写好`xxx.sh`，再写一个`xxx.bat`，在`xxx.bat`中调用`xxx.sh`  
+当然也可能有更好的方法
+
+
 ## 关于插件的安装
 - 只有一个.py文件时
 打开目录：D:\Applications\Python\Lib\site-packages\markdown\extensions  
