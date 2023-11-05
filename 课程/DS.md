@@ -160,6 +160,7 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   - 完全二叉树
   - 任意节点的值大于其子节点的值
   - 任意节点的值小于其父节点的值
+
   - 用数组实现
     - 从1开始编号
     - 对于某个节点：（若结果符合条件，否则就说明没有）
@@ -173,3 +174,45 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 #### 3.基础堆操作：基于上面的要求，完成目的           
   1. Insert（向上置换）
   2. DeleteMin（向下置换）
+
+---
+
+## 05 Disjoint Sets
+### 1.等价关系R
+> 定义在集合上的关系
+
+### 2.动态等价关系
+
+### 3.基本操作
+  1. MakeSet(x)：建立一个新的集合，该集合中只包含元素x
+  2. Set Union(x,y)：将包含元素x和y的两个集合合并成一个新的集合
+     - $S_1 \cup S_2：以S_1的根为根$（谁在后边，改的就是谁的根）
+  3. Find(x)：找到包含元素x的集合的名字
+
+### 4.实现
+  1. 数组实现：S[Elements]= The element's parent
+   
+     > S[Root] = 0
+
+     ```
+     SetType  Find ( ElementType X, DisjSet S ){
+         for ( ; S[X] > 0; X = S[X] ) ;
+     return  X ;
+     }
+     ```
+
+  2. 链表实现
+
+### 5.Smart Union Algorithms
+  - Union by Size
+  
+    > S[Root] = -Size
+
+  - Union by Height
+
+### 6.路径压缩
+  - 和Size Union一起使用
+  - 和Height Union一起使用：Union by Rank(Estimated Height)
+  最差情形：![](./DS/5.6.1.png)  
+
+---以上为期中考试内容---
