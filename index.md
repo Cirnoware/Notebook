@@ -27,7 +27,8 @@
 似乎是校内其他同学
 
 [HobbitQia的笔记本](https://note.hobbitqia.cc/)  
-[](https://note.bowling233.top/)--似乎有很多友链
+[Bowling's TechStack](https://note.bowling233.top/)--似乎有很多友链
+[鹤翔万里的笔记本](https://note.tonycrane.cc/)--某位大佬的Mkdocs魔改，可以借鉴一下
 
 顺藤摸瓜，一挖挖一堆，大丰收![ac06](.\AC娘表情包\ac06.gif)
 
