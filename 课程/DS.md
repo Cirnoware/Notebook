@@ -148,6 +148,7 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   - 二叉树
   - 满二叉树
   - 完全(Complete)二叉树：除了最后一层，其他层都是满的，且最后一层的节点都靠左
+    - 左子树的大于等于右子树
 ---
 
 ## 04 堆 (Priotiry Queues)
@@ -158,6 +159,18 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 ### 二、二分堆(Binary Heap == Binary Queue)
 #### 1.结构特性
   - 完全二叉树
+  
+  ```mermaid
+  graph TD
+  A((1))-->B((2))
+  A-->C((3))
+  B-->D((4))
+  B-->E((5))
+  C-->F((6))
+  C-->G((7))
+  D-->H((8))
+  D-->I((9))
+  ```
   - 任意节点的值大于其子节点的值
   - 任意节点的值小于其父节点的值
 
@@ -174,16 +187,23 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 #### 3.基础堆操作：基于上面的要求，完成目的           
   1. Insert（向上置换）
   2. DeleteMin（向下置换）
+  3. BuildHeap
+     - 从最后一个非叶节点开始，向下置换<mark>(注意不是从根节点开始一个一个插入)<mark>
 
 ---
 
-## 05 Disjoint Sets
+## 05 Disjoint Sets 并查集
 ### 1.等价关系R
 > 定义在集合上的关系
-
+  - Reflexive 自反性：$aRa$
+  - Symmetric 对称性：$aRb\ \Leftrightarrow \ bRa$
+  - Transitive 传递性：$aRb \wedge bRc \Rightarrow aRc$
 ### 2.动态等价关系
 
 ### 3.基本操作
+
+  > 并查的过程，就是将本身分散的节点之间建立联系的过程
+
   1. MakeSet(x)：建立一个新的集合，该集合中只包含元素x
   2. Set Union(x,y)：将包含元素x和y的两个集合合并成一个新的集合
      - $S_1 \cup S_2：以S_1的根为根$（谁在后边，改的就是谁的根）
@@ -191,8 +211,10 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 
 ### 4.实现
   1. 数组实现：S[Elements]= The element's parent
-   
-     > S[Root] = 0
+     - S[0]不使用
+     > 在这里，我们假定S是一个数组，数组的下标是元素的名字，数组的值是元素的父节点的名字。对于根节点的元素，可以有多种表示方法，比如0，-size等等。注意S表示的是所有元素（森林），其中可以有很多棵树（集合）
+
+     > S[Root] = 0 （可能有好多个Root）
 
      ```
      SetType  Find ( ElementType X, DisjSet S ){
@@ -208,9 +230,15 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   
     > S[Root] = -Size
 
+    此时有$Height < \lfloor log(N) \rfloor+1$
+
   - Union by Height
 
+  这些手段都是针对“并”这个过程来说的。举个例子，以按大小合并为例，当我们要合并两个集合时，我们可以先判断两个集合的大小，然后将小的集合合并到大的集合中，这样就可以保证树的高度不会太高，从而提高Find的效率。
+
+
 ### 6.路径压缩
+  > 在Find的过程中，将路径上的所有节点也顺便都连接到根节点上
   - 和Size Union一起使用
   - 和Height Union一起使用：Union by Rank(Estimated Height)
   最差情形：![](./DS/5.6.1.png)  
