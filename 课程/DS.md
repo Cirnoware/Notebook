@@ -51,6 +51,8 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 ### 分治法
 > 将一个n的方法变为$\frac{n}{2}$的方法
 
+一个坑:$O(log(N)^2 )= O(N)$
+
 ---
 
 ## 02 列表，栈，队列
@@ -58,9 +60,9 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 > Data Type = { Objects } + { Operations }  
 
 ### List
-  1. 数组实现
-  2. 链表  
-    dummy node：头结点，不存储数据，只是为了方便操作（即表头）
+  1. 数组实现(Linear List)
+  2. 链表  (Linked List)  
+    - dummy node：头结点，不存储数据，只是为了方便操作（即表头）
 
 ### 栈：LIFO
   - 操作：Push（进栈），Pop（出栈），Top  
@@ -95,18 +97,18 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 
 ## 03 树
 ### 一、属性
-  - degree of a node ::= number of subtrees of the node.  For example, degree(A) = 3, degree(F) = 0.(For a binary tree, degree of a node is either 0 or 1 or 2.)
-  - degree of a tree ::= maximum degree of all nodes in the tree.  For example, degree(T) = 3.
-  - parent ::= 有子树的节点
-  - child ::= 有父节点的节点（母节点的子树的根）
-  - sibling ::= 具有同一母节点的节点
-  - leaf ::= 没有子树的节点
-  - path ::= 从一个节点到另一个节点的路径（唯一）
-  - length of a path ::= number of edges on the path
-  - depth of a node ::= length of the path from the root to the node,Depth(root) = 0
-  - height of a node ::= length of the longest path from the node to a leaf
-  - ancestors of a node ::= all nodes on the path from the root to the node
-  - descendants of a node ::= all nodes on the path from the node to a leaf
+- 节点的度 ::= 节点的子树数量。例如，度(A) = 3，度(F) = 0。（对于二叉树，节点的度可以是0、1或2）
+- 树的度 ::= 树中所有节点的最大度。例如，度(T) = 3。
+- 父节点 ::= 拥有子树的节点
+- 子节点 ::= 拥有父节点的节点（母节点的子树的根）
+- 兄弟节点 ::= 拥有相同父节点的节点
+- 叶节点 ::= 没有子树的节点
+- 路径 ::= 从一个节点到另一个节点的路径（唯一的路径）
+- 路径的长度 ::= 路径上边的数量
+- 节点的深度 ::= 从根节点到该节点的路径长度，根节点的深度为0
+- 节点的高度 ::= 从该节点到叶节点的最长路径长度
+- 节点的祖先 ::= 从根节点到该节点的所有节点
+- 节点的后代 ::= 从该节点到叶节点的所有节点
 
 ### 二、实现（链表）
 
@@ -119,37 +121,61 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
     1. 叶的顺序不变
     2. 任何数都可以转换成一个二叉树（见PPT04P06）
 
-### 四、Threaded Bindary Trees 
+### 四、Inordered Threaded Bindary Trees 
   Thread == Ture:原来是一个空指针
   - 为每个节点添加一个线索，指向中序遍历的后继节点
   - 为每个节点添加一个线索，指向中序遍历的前驱节点
 
 ### 五、Properties of Binary Trees
-  - For any nonempty binary tree, n0 = n2 + 1 where n0 is the number of leaf nodes and n2 the number of nodes of degree 2.
+  - 对于非空树, n0 = n2 + 1 
   （n0为叶节点数，n2为度为2的节点数，即有两个子树的节点）
 
-### 六、Binary Search Tree
+### 坑
+- If on the 9th level of a complete binary tree (assume that the root is on the 1st level) there are 100 leaf nodes
+  - 第九层的节点有100个叶节点，意味着还有第十层
+
+---
+
+## 04 Binary Search Tree
+
   > 正序：increasing order
 
-  1. 性质  
-     - 左子树的所有节点的值均小于根节点的值，右子树的所有节点的值均大于根节点的值
-     - 键值全为整数且不同
-  - For find operation:T(N) = O(d),d is the depth of the tree
-  - Insertion
-  - Delete
-    1. Delete a leaf:Reset its parent link to NULL
-    2. Deleta a degree 1 node :Replace the node by its single child.
-    3. degree 2 node :   
-        Step1: Replace the node by the largest one in its left subtree or the smallest one in its right subtree.  
-        Step2: Delete the replacing node from the subtree.
-  - Best case: O(logN)  全二叉树
-  - Worst case: O(N)  类似链表
+### 性质  
 
-### 七、树的种类
+  - 左子树的所有节点的值均小于根节点的值，右子树的所有节点的值均大于根节点的值
+  - 键值全为整数且不同
+  - 查找操作：T(N) = O(d)，其中d是树的深度。
+  - 插入操作
+  - 删除操作：
+    1. 删除叶子节点：将其父节点的链接设置为NULL。
+    2. 删除度为1的节点：用其唯一的子节点替换该节点。
+    3. 删除度为2的节点：
+     - 步骤1：用左子树中最大的节点或右子树中最小的节点替换该节。
+     - 步骤2：从子树中删除替换的节点。
+  - 最好情况：O(logN)，当树为完全二叉树时。
+  - 最坏情况：O(N)，当树类似链表时。
+
+### 树的种类
   - 二叉树
-  - 满二叉树
+    - BST
+  - 满二叉树：全满
   - 完全(Complete)二叉树：除了最后一层，其他层都是满的，且最后一层的节点都靠左
-    - 左子树的大于等于右子树
+    - 左子树的数量大于等于右子树（注意BST不是！）
+
+### 操作
+- 插入
+  - 从根节点开始，比较插入值和节点值的大小
+  - 不会删除原有节点
+  - 树的高度和插入顺序有关
+
+- 删除
+  - 叶子节点：直接删除，将其父节点的链接设置为NULL，再free它
+  - 度为1的节点：将其值替换成他的子节点，再free它的子节点
+  - 度为2的节点：用左子树中最大的节点或右子树中最小的节点替换该节点，再free该子节点（注意是左子树而不是左子节点）
+
+### 时间复杂度分析
+对于比较平衡的BST来说，插入和删除的时间复杂度都是O(logN)。但是，如果插入的顺序是有序的，那么BST就会退化成链表，此时插入和删除的时间复杂度都是O(N)。
+
 ---
 
 ## 04 堆 (Priotiry Queues)
@@ -176,7 +202,7 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   - 任意节点的值小于其父节点的值
 
   - 用数组实现
-    - 从1开始编号
+    - 从1开始编号，0不使用
     - 对于某个节点：（若结果符合条件，否则就说明没有）
       - 父节点编号为\[i/2\](对于某个节点)
       - 左子节点编号为2i
@@ -189,7 +215,10 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   1. Insert（向上置换）
   2. DeleteMin（向下置换）
   3. BuildHeap
-     - 从最后一个非叶节点开始，向下置换<mark>(注意不是从根节点开始一个一个插入)<mark>
+     - 从最后一个非叶节点开始，percolate down<mark>(注意不是从根节点开始一个一个插入)<mark>
+     - 复杂度：O(N)
+  4. 最小树转最大树
+    - 根据最小堆的输出，再建一个堆即可，消耗O(N)的时间
 
 ---
 
@@ -243,6 +272,12 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   - 和Size Union一起使用
   - 和Height Union一起使用：Union by Rank(Estimated Height)
   最差情形：![](./DS/5.6.1.png)  
+
+### 0位不使用的ADT
+  - 并查集
+  - 二分堆（0作哨兵节点）
+  - 带dummy node的链表
+
 
 ---以上为期中考试内容---
 期中题型
@@ -298,3 +333,13 @@ C((3))-->C
   - 应用：
     - 判断有没有环
     - 依赖关系
+
+---
+
+## 排序
+
+> 默认升序
+
+### 堆排序
+- 不断删除最小值，直到堆为空
+- 复杂度：O(NlogN)
