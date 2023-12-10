@@ -356,3 +356,5 @@ C((3))-->C
 #### 带权最短路（无负权时）--Djikstra's Algorithm
 #### 带负权最短路
 #### 有向无环图的最短路--拓扑排序
+- 关于虚拟活动
+  [](https://theconstructor.org/construction/dummy-activity-network-analysis/31502/)
