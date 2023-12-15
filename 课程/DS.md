@@ -355,6 +355,20 @@ C((3))-->C
 #### 不带权最短路--广度优先搜索
 #### 带权最短路（无负权时）--Djikstra's Algorithm
 #### 带负权最短路
-#### 有向无环图的最短路--拓扑排序
-- 关于虚拟活动
-  [](https://theconstructor.org/construction/dummy-activity-network-analysis/31502/)
+#### 有向无环图(DAG)的最短路--拓扑排序
+- [关于虚拟活动](https://theconstructor.org/construction/dummy-activity-network-analysis/31502/)
+
+### 网络流问题
+
+### 最小生成树(minimum spanning tree)
+#### 生成树
+  - 包含原图上所有顶点的树（对于某个（带权）无向图来说）
+  - 点是原来的点，边是原来的边
+  - 要求：图是连通的
+  - 最小生成树：使各边权重之和最小的生成树
+
+### DFS
+
+### 欧拉回路
+#### 欧拉回路存在条件：
+  - 所有点的度均为偶数
