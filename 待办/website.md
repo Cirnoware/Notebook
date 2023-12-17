@@ -1,8 +1,8 @@
 ## 待看网页
 ### 学习相关
  
-[聊位科研大佬，我心中的W哥](https://www.cc98.org/topic/5714180/1)
-
+[聊位科研大佬，我心中的W哥](https://www.cc98.org/topic/5714180/1)  
+[OIWiki](https://oi-wiki.org/)
 ## 科研相关
 [【深度科研训练】关于启动竺可桢学院自然科学基金学生培育项目申报的通知](https://mp.weixin.qq.com/s/VS83DygRJw_BkaSpEHI0MA)
 
