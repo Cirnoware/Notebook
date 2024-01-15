@@ -120,6 +120,7 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
   #### 1. 性质  
     1. 叶的顺序不变
     2. 任何数都可以转换成一个二叉树（见PPT04P06）
+    3. 仅仅给出前序和后序，无法唯一确定一棵树
 
 ### 四、Inordered Threaded Bindary Trees 
   Thread == Ture:原来是一个空指针
