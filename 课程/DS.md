@@ -359,7 +359,7 @@ C((3))-->C
 #### 有向无环图(DAG)的最短路--拓扑排序
 - [关于虚拟活动](https://theconstructor.org/construction/dummy-activity-network-analysis/31502/)
 
-### 网络流问题
+### 网络流问题：需要学会计算和分析复杂度
 
 ### 最小生成树(minimum spanning tree)
 #### 生成树
@@ -414,3 +414,11 @@ C((3))-->C
 ---
 
 ## Hashing
+
+--- 
+
+坑：
+- Growing Speed：不管常数e.g $Nlog(N^2) = Nlog(N^3)$
+- parent的parent不是parent了
+- 快排时，若pivot在边角，则会少一个位置正确的项
+- union(a,b)：把b并到a里面
