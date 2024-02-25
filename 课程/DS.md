@@ -207,7 +207,7 @@ $(\frac{3}{2})^2 \leq Fib(N) \leq (\frac{5}{2})^n$
 
   - 用数组实现
     - 从1开始编号，0不使用
-    - 对于某个节点：（若结果符合条件，否则就说明没有）
+    - 对于某个节点：（若结果符合条件，否则就说明没有）（这个性质成立的必要条件是coplete binary tree）
       - 父节点编号为\[i/2\](对于某个节点)
       - 左子节点编号为2i
       - 右子节点编号为2i+1
@@ -421,4 +421,4 @@ C((3))-->C
 - Growing Speed：不管常数e.g $Nlog(N^2) = Nlog(N^3)$
 - parent的parent不是parent了
 - 快排时，若pivot在边角，则会少一个位置正确的项
-- union(a,b)：把b并到a里面
+- union(a,b)：把b并到a里面(如果不考虑unionbysize的话)
